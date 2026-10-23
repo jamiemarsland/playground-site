@@ -1,0 +1,50 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "meta": {
+    "title": "Storefront Pro \u2013 Start up demo",
+    "author": "pootlepress",
+    "description": "The Start up Storefront Pro design skin on WooCommerce."
+  },
+  "landingPage": "/",
+  "preferredVersions": {
+    "php": "8.3",
+    "wp": "latest"
+  },
+  "features": {
+    "networking": true
+  },
+  "login": true,
+  "steps": [
+    {
+      "step": "importWordPressFiles",
+      "wordPressFilesZip": {
+        "resource": "url",
+        "url": "https://wp-skins.com/bundles/startup.zip"
+      }
+    },
+    {
+      "step": "installTheme",
+      "themeData": {
+        "resource": "url",
+        "url": "https://downloads.wordpress.org/theme/storefront.4.6.2.zip"
+      },
+      "options": {
+        "activate": true
+      }
+    },
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://downloads.wordpress.org/plugin/woocommerce.11.2.1.zip"
+      },
+      "options": {
+        "activate": false
+      }
+    },
+    {
+      "step": "runPHP",
+      "code": "<?php require '/wordpress/wp-load.php'; update_option('wpskins_media_base','https://wp-skins.com/media/startup'); update_option('blogdescription', get_option('blogdescription'));"
+    }
+  ]
+}

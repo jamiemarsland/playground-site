@@ -1,0 +1,32 @@
+[
+ {
+  "slug": "croyde",
+  "title": "Croyde",
+  "desc": "Clean, minimal fashion & lifestyle store"
+ },
+ {
+  "slug": "barossa",
+  "title": "Barossa",
+  "desc": "Elegant wine estate with full-width hero"
+ },
+ {
+  "slug": "poppie",
+  "title": "Poppie",
+  "desc": "Side-header boutique with bold imagery"
+ },
+ {
+  "slug": "showcase",
+  "title": "Showcase",
+  "desc": "Full-screen slider, off-canvas menu"
+ },
+ {
+  "slug": "startup",
+  "title": "Start up",
+  "desc": "Modern startup storefront"
+ },
+ {
+  "slug": "streamliner",
+  "title": "Streamliner",
+  "desc": "Bold guitar shop with category tiles"
+ }
+]

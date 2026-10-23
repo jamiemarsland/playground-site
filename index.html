@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WP Skins – Storefront Pro live demos</title>
+<meta name="description" content="Try every Storefront Pro design skin live in WordPress Playground – a full WooCommerce store in your browser, admin included.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f6f3ee;--card:#fff;--ink:#1d1b18;--muted:#6b655c;--line:#e5dfd5;--accent:#c4512f;--accent-ink:#fff}
+@media (prefers-color-scheme:dark){:root{--bg:#161412;--card:#201d1a;--ink:#f1ece4;--muted:#a59d91;--line:#33302b;--accent:#e2704c}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+header{padding:72px 0 40px}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:600}
+h1{font-family:Fraunces,Georgia,serif;font-weight:600;font-size:clamp(34px,6vw,60px);line-height:1.05;margin:12px 0 16px;max-width:14ch}
+.lede{color:var(--muted);font-size:18px;max-width:58ch;margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;padding-bottom:56px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 34px rgba(0,0,0,.09)}
+.thumb{aspect-ratio:64/45;background:var(--line);display:block;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block}
+.body{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+.body h2{font-family:Fraunces,Georgia,serif;font-size:24px;margin:0}
+.body p{margin:0 0 12px;color:var(--muted);font-size:15px}
+.btn{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:var(--accent-ink);text-decoration:none;font-weight:600;padding:11px 16px;border-radius:9px}
+.btn:hover{filter:brightness(1.08)}
+.note{border-top:1px solid var(--line);padding:28px 0 56px;color:var(--muted);font-size:14px;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between}
+.note a{color:var(--ink)}
+code{background:var(--line);padding:1px 6px;border-radius:5px;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Storefront Pro · live demos</div>
+    <h1>Pick a skin. Get a whole store.</h1>
+    <p class="lede">Each demo boots a real WooCommerce shop in your browser with WordPress Playground. Browse it, add to cart, check out, or open the Customizer and change the design. It resets each time you visit.</p>
+  </header>
+  <main class="grid" id="grid"></main>
+  <div class="note">
+    <span>First launch takes about 20–30 seconds while WordPress loads in your browser. You're logged in as <code>admin</code>.</span>
+    <span>Made by <a href="https://www.pootlepress.com/">Pootlepress</a></span>
+  </div>
+</div>
+<script>
+const demos=[
+ ["croyde","Croyde","Clean, minimal fashion and lifestyle store"],
+ ["barossa","Barossa","Elegant wine estate with a full-width hero"],
+ ["poppie","Poppie","Side-header boutique with bold imagery"],
+ ["showcase","Showcase","Full-screen slider and off-canvas menu"],
+ ["startup","Start up","Modern start-up storefront"],
+ ["streamliner","Streamliner","Bold guitar shop with category tiles"]];
+const base=location.origin.includes('wp-skins.com')?location.origin:'https://wp-skins.com';
+document.getElementById('grid').innerHTML=demos.map(([s,t,d])=>{
+ const url=`https://playground.wordpress.net/?blueprint-url=${base}/blueprints/${s}.json`;
+ return `<article class="card"><a class="thumb" href="${url}" target="_blank" rel="noopener"><img src="thumbs/${s}.jpg" alt="${t} skin homepage" loading="lazy"></a>
+ <div class="body"><h2>${t}</h2><p>${d}</p><a class="btn" href="${url}" target="_blank" rel="noopener">Launch live demo →</a></div></article>`}).join('');
+</script>
+</body>
+</html>
